@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http学习">
+<meta property="og:url" content="http://yoursite.com/2019/03/03/http学习/index.html">
+<meta property="og:site_name" content="Nancy&#39;s Blog">
+<meta property="og:description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-03T09:06:39.326Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http学习">
+<meta name="twitter:description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/03/http学习/">
+
+
+
+
+
+  <title>http学习 | Nancy's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Nancy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/03/http学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Nancy">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nancy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">http学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T17:05:49+08:00">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="第一章、了解web及网络基础"><a href="#第一章、了解web及网络基础" class="headerlink" title="第一章、了解web及网络基础"></a>第一章、了解web及网络基础</h4><h5 id="1-1-TCP-IP协议族"><a href="#1-1-TCP-IP协议族" class="headerlink" title="1.1 TCP/IP协议族"></a>1.1 TCP/IP协议族</h5><blockquote>
+<p>把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层</p>
+<ul>
+<li>应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等</li>
+<li>传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协议）</li>
+<li>网络层：处理在网络上流动的数据包，包括选择传输路线，并把数据包传送给对方</li>
+<li>链路层：处理网络连接的硬件部分</li>
+</ul>
+</blockquote>
+<h4 id="第三章、HTTP报文内的HTTP信息"><a href="#第三章、HTTP报文内的HTTP信息" class="headerlink" title="第三章、HTTP报文内的HTTP信息"></a>第三章、HTTP报文内的HTTP信息</h4><h5 id="3-1-HTTP报文"><a href="#3-1-HTTP报文" class="headerlink" title="3.1 HTTP报文"></a>3.1 HTTP报文</h5><blockquote>
+<p>用于HTTP协议交互的信息被称为HTTP报文，请求端（客户端）的 HTTP 报文叫做请求报文，响应端（服务器端）的叫做响应报文。</p>
+</blockquote>
+<h4 id="第四章、返回结果的HTTP状态码"><a href="#第四章、返回结果的HTTP状态码" class="headerlink" title="第四章、返回结果的HTTP状态码"></a>第四章、返回结果的HTTP状态码</h4><blockquote>
+<ul>
+<li>HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作</li>
+<li>状态码：以3位数字和原因短语组成，数字第一位指定了响应类别</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 2XX</td>
+<td>Success（成功状态码）</td>
+<td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td> 4XX</td>
+<td>Client Error（客户端错误状态码）</td>
+<td>服务器无法处理请求</td>
+</tr>
+<tr>
+<td> 5XX</td>
+<td>Server Error（服务器错误状态码）</td>
+<td>服务器请求出错</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4-1-2XX-成功"><a href="#4-1-2XX-成功" class="headerlink" title="4.1 2XX 成功"></a>4.1 2XX 成功</h5><blockquote>
+<p>2XX 的响应结果表明请求被正常处理了</p>
+<ul>
+<li>200 OK 表示从客户端发来的请求在服务器端被正常处理了</li>
+</ul>
+</blockquote>
+<h5 id="4-2-4XX-客户端错误"><a href="#4-2-4XX-客户端错误" class="headerlink" title="4.2 4XX 客户端错误"></a>4.2 4XX 客户端错误</h5><blockquote>
+<p>4XX 的响应结果表明客户端是发生错误的原因所在</p>
+<ul>
+<li>400 Bad Request 表示请求报文中存在语法错误</li>
+<li>401 Unauthorized 表示发送的请求需要有通过 HTTP 认证（BASIC 认证、DIGEST 认证）的认证信息</li>
+<li>403 Forbidden 表明对请求资源的访问被服务器拒绝了</li>
+<li>404 Not Found 表明服务器上无法找到请求的资源</li>
+</ul>
+</blockquote>
+<h5 id="4-3-5XX-服务器错误"><a href="#4-3-5XX-服务器错误" class="headerlink" title="4.3 5XX 服务器错误"></a>4.3 5XX 服务器错误</h5><blockquote>
+<p>5XX 的响应结果表明服务器本身发生错误</p>
+<ul>
+<li>500 Internal Server Error 表明服务器端在执行请求时发生了错误</li>
+<li>503 Service Unavailable 表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求</li>
+</ul>
+</blockquote>
+<h4 id="第五章、与HTTP协作的Web服务器"><a href="#第五章、与HTTP协作的Web服务器" class="headerlink" title="第五章、与HTTP协作的Web服务器"></a>第五章、与HTTP协作的Web服务器</h4><blockquote>
+<p>一台 Web 服务器可搭建多个独立域名的 Web 网站，也可作为通信路<br>径上的中转服务器提升传输效率</p>
+</blockquote>
+<h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5><ul>
+<li>HTTP/1.1 规范允许一台HTTP服务器搭建多个Web站点。比如，提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站。这是因为利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能<h5 id="5-2-通信数据转发程序"><a href="#5-2-通信数据转发程序" class="headerlink" title="5.2 通信数据转发程序"></a>5.2 通信数据转发程序</h5><blockquote>
+<p>HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据转发<br>的应用程序，例如代理、网关和隧道。它们可以配合服务器工作。<br>这些应用程序和服务器可以将请求转发给通信线路上的下一站服务<br>器，并且能接收从那台服务器发送的响应再转发给客户端。</p>
+<ul>
+<li>代理：是一种有转发功能的应用程序，它扮演了位于服务器和客户<br>端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时<br>也接收服务器返回的响应并转发给客户端</li>
+<li>网关：转发其他服务器通信数据的服务器，接收从客户端发送来的请<br>求时，它就像自己拥有资源的源服务器一样对请求进行处理</li>
+<li>隧道：是在相隔甚远的客户端和服务器两者之间进行中转，并保持双方<br>通信连接的应用程序</li>
+</ul>
+</blockquote>
+<h6 id="5-2-1-代理"><a href="#5-2-1-代理" class="headerlink" title="5.2.1 代理"></a>5.2.1 代理</h6></li>
+<li>每次通过代理服务器转发请求或响应时，会追加写入<code>Via</code>首部信息，以标记出经过的主机信息</li>
+<li>使用代理服务器的理由有：利用缓存技术（稍后讲解）减少网络带宽的流量，组织内部针对特定网站的访问控制，以获取访问日志为主要目的，等等</li>
+<li>代理有多种使用方法，按两种基准分类：一种是是否使用缓存，另一种是是否会修改报文</li>
+<li>缓存代理：代理转发响应时，缓存代理（Caching Proxy）会预先将资源的副本<br>（缓存）保存在代理服务器上。当代理再次接收到对相同资源的请求时，就可以不从源服务器那里获取资源，而是将之前缓存的资源作为响应返回</li>
+<li>透明代理：转发请求或响应时，不对报文做任何加工的代理类型被称为透明代理<h6 id="5-2-2-网关"><a href="#5-2-2-网关" class="headerlink" title="5.2.2 网关"></a>5.2.2 网关</h6></li>
+<li>网关的工作机制和代理十分相似。而网关能使通信线路上的服务器提供非HTTP协议服务。利用网关能提高通信的安全性，因为可以在客户端与网关之间的通信<br>线路上加密以确保连接的安全<h6 id="5-2-3-隧道"><a href="#5-2-3-隧道" class="headerlink" title="5.2.3 隧道"></a>5.2.3 隧道</h6></li>
+<li>隧道可按要求建立起一条与其他服务器的通信线路，届时使用 SSL等加密手段进行通信</li>
+<li>隧道的目的是确保客户端能与服务器进行安全的通信。隧道本身不会去解析 HTTP 请求。也就是说，请求保持原样中转给之<br>后的服务器。隧道会在通信双方断开连接时结束。<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><blockquote>
+<ul>
+<li>缓存是指==代理服务器或客户端本地磁盘内保存==的资源副本。利用缓存<br>可减少对源服务器的访问，因此也就节省了通信流量和通信时间。</li>
+<li>缓存服务器是代理服务器的一种</li>
+</ul>
+</blockquote>
+<h6 id="5-3-1-缓存的有效期限"><a href="#5-3-1-缓存的有效期限" class="headerlink" title="5.3.1 缓存的有效期限"></a>5.3.1 缓存的有效期限</h6></li>
+<li>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源<h6 id="5-3-2-客户端的缓存"><a href="#5-3-2-客户端的缓存" class="headerlink" title="5.3.2 客户端的缓存"></a>5.3.2 客户端的缓存</h6></li>
+<li>缓存不仅可以存在于缓存服务器内，还可以存在客户端浏览器中</li>
+<li>浏览器缓存如果==有效==，就不必再向服务器请求相同的资源了，可以==直<br>接从本地磁盘内读取==</li>
+<li>和缓存服务器相同的一点是，当判定==缓存过期==后，会向源服务<br>器确认资源的有效性。若判断浏览器==缓存失效==，浏览器会==再次请求新<br>资源==<h4 id="第六章、HTTP-首部"><a href="#第六章、HTTP-首部" class="headerlink" title="第六章、HTTP 首部"></a>第六章、HTTP 首部</h4></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/21/github-hexo-搭建博客/" rel="next" title="github-hexo-搭建博客">
+                <i class="fa fa-chevron-left"></i> github-hexo-搭建博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Nancy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章、了解web及网络基础"><span class="nav-number">1.</span> <span class="nav-text">第一章、了解web及网络基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-TCP-IP协议族"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 TCP/IP协议族</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章、HTTP报文内的HTTP信息"><span class="nav-number">2.</span> <span class="nav-text">第三章、HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-HTTP报文"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 HTTP报文</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四章、返回结果的HTTP状态码"><span class="nav-number">3.</span> <span class="nav-text">第四章、返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-2XX-成功"><span class="nav-number">3.1.</span> <span class="nav-text">4.1 2XX 成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-4XX-客户端错误"><span class="nav-number">3.2.</span> <span class="nav-text">4.2 4XX 客户端错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-5XX-服务器错误"><span class="nav-number">3.3.</span> <span class="nav-text">4.3 5XX 服务器错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五章、与HTTP协作的Web服务器"><span class="nav-number">4.</span> <span class="nav-text">第五章、与HTTP协作的Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-用单台虚拟主机实现多个域名"><span class="nav-number">4.1.</span> <span class="nav-text">5.1 用单台虚拟主机实现多个域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-通信数据转发程序"><span class="nav-number">4.2.</span> <span class="nav-text">5.2 通信数据转发程序</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-1-代理"><span class="nav-number">4.2.1.</span> <span class="nav-text">5.2.1 代理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-2-网关"><span class="nav-number">4.2.2.</span> <span class="nav-text">5.2.2 网关</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-3-隧道"><span class="nav-number">4.2.3.</span> <span class="nav-text">5.2.3 隧道</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-保存资源的缓存"><span class="nav-number">4.3.</span> <span class="nav-text">5.3 保存资源的缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-1-缓存的有效期限"><span class="nav-number">4.3.1.</span> <span class="nav-text">5.3.1 缓存的有效期限</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-2-客户端的缓存"><span class="nav-number">4.3.2.</span> <span class="nav-text">5.3.2 客户端的缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六章、HTTP-首部"><span class="nav-number">5.</span> <span class="nav-text">第六章、HTTP 首部</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nancy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
