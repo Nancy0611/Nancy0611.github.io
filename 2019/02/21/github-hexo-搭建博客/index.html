@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &amp;apos;文章名称&amp;apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主">
+<meta name="description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &apos;文章名称&apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主题时首页显示的文章列">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github-hexo-搭建博客">
 <meta property="og:url" content="http://yoursite.com/2019/02/21/github-hexo-搭建博客/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Blog">
-<meta property="og:description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &amp;apos;文章名称&amp;apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主">
+<meta property="og:description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &apos;文章名称&apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主题时首页显示的文章列">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-03-19T03:39:31.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github-hexo-搭建博客">
-<meta name="twitter:description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &amp;apos;文章名称&amp;apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主">
+<meta name="twitter:description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &apos;文章名称&apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主题时首页显示的文章列">
 
 
 
@@ -365,13 +365,13 @@
         <h4 id="添加自己的博客文章"><a href="#添加自己的博客文章" class="headerlink" title="添加自己的博客文章"></a>添加自己的博客文章</h4><ol>
 <li>在终端窗口下，定位到Hexo站点目录下</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &apos;文章名称&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="type">post</span> <span class="string">'文章名称'</span></span><br></pre></td></tr></table></figure>
 <p>生成文档在 <strong>博客/source/_post/文章名称.md</strong>，hexo会自动编译markdown文件</p>
 <ol start="2">
 <li>编辑文档</li>
 <li>重新发布</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g(generate)</span><br><span class="line">hexo d(deploy)</span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g(<span class="keyword">generate</span>)</span><br><span class="line">hexo d(deploy)</span><br></pre></td></tr></table></figure>
 <h4 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h4><blockquote>
 <ul>
 <li>next是Hexo的一个博客主题，使用该主题时首页显示的文章列表，每一篇都是显示全文，不方便概览。希望通过主题设置达到如下效果：首页显示文章列表，列表每篇文章只显示预览，不显示全文。</li>
@@ -382,7 +382,7 @@
 <li>用文本编辑器打开_config.yml文件</li>
 <li>搜索<code>auto_excerpt</code>找到如下部分</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Automatically Excerpt. Not recommend.</span><br><span class="line"># Please use &lt;!-- more --&gt; in the post to control excerpt accurately.</span><br><span class="line">auto_excerpt:</span><br><span class="line">  enable: false</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Automatically Excerpt. Not recommend.</span><br><span class="line"># Please use <span class="comment">&lt;!-- more --&gt;</span> in the post to control excerpt accurately.</span><br><span class="line">auto_excerpt:</span><br><span class="line">  enable: false</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>将<code>enable</code>对应的<code>false</code>改为<code>true</code>，然后终端输入<code>hexo d -g</code>再进入主页刷新，问题就解决了</li>
 </ol>
