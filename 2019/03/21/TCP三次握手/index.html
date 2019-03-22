@@ -82,14 +82,14 @@
 <meta name="description" content="本文仅为学习笔记，转自文章   网络层，可以实现两个主机之间的通信。但是这并不具体，因为，真正进行通信的实体是在主机中的进程，是一个主机中的一个进程与另外一个主机中的一个进程在交换数据。IP协议虽然能把数据报文送到目的主机，但是并没有交付给主机的具体应用进程。而端到端的通信才应该是应用进程之间的通信。   1. TCP与UDP UDP：在传送数据前不需要先建立连接，远程的主机在收到UDP报文后也不">
 <meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CP三次握手">
+<meta property="og:title" content="TCP三次握手">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/TCP三次握手/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Blog">
 <meta property="og:description" content="本文仅为学习笔记，转自文章   网络层，可以实现两个主机之间的通信。但是这并不具体，因为，真正进行通信的实体是在主机中的进程，是一个主机中的一个进程与另外一个主机中的一个进程在交换数据。IP协议虽然能把数据报文送到目的主机，但是并没有交付给主机的具体应用进程。而端到端的通信才应该是应用进程之间的通信。   1. TCP与UDP UDP：在传送数据前不需要先建立连接，远程的主机在收到UDP报文后也不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-21T13:56:51.628Z">
+<meta property="og:updated_time" content="2019-03-22T09:41:43.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CP三次握手">
+<meta name="twitter:title" content="TCP三次握手">
 <meta name="twitter:description" content="本文仅为学习笔记，转自文章   网络层，可以实现两个主机之间的通信。但是这并不具体，因为，真正进行通信的实体是在主机中的进程，是一个主机中的一个进程与另外一个主机中的一个进程在交换数据。IP协议虽然能把数据报文送到目的主机，但是并没有交付给主机的具体应用进程。而端到端的通信才应该是应用进程之间的通信。   1. TCP与UDP UDP：在传送数据前不需要先建立连接，远程的主机在收到UDP报文后也不">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>CP三次握手 | Nancy's Blog</title>
+  <title>TCP三次握手 | Nancy's Blog</title>
   
 
 
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CP三次握手</h1>
+          <h1 class="post-title" itemprop="name headline">TCP三次握手</h1>
         
 
         <div class="post-meta">
@@ -370,9 +370,9 @@
 </blockquote>
 <h4 id="1-TCP与UDP"><a href="#1-TCP与UDP" class="headerlink" title="1. TCP与UDP"></a>1. TCP与UDP</h4><ul>
 <li>UDP：在传送数据前不需要先建立连接，远程的主机在收到UDP报文后也不需要给出任何确认。虽然UDP不提供可靠交付，但是正是因为这样，省去很多的开销，使得它的速度比较快，比如一些对实时性要求较高的服务，就常常使用的是UDP，对应的应用层协议主要有<code>DNS TFTP DHCP SNMP NFS</code>等</li>
-<li>TCP：提供面向连接的服务，在传送数据之前必须先建立连接，数据传送完成后要释放连接。因此TCP是一种可靠的运输服务，但是正因为这样，<strong>不可避免</strong>地增加了许多的开销，比如确认、流量控制等。对应的应用层协议主要有<code>SMTP TELNET HTTP FTP</code><h4 id="2-常用的熟知端口"><a href="#2-常用的熟知端口" class="headerlink" title="2.常用的熟知端口"></a>2.常用的熟知端口</h4></li>
+<li>TCP：提供面向连接的服务，在传送数据之前必须先建立连接，数据传送完成后要释放连接。因此TCP是一种可靠的运输服务，但是正因为这样，<strong>不可避免</strong>地增加了许多的开销，比如确认、流量控制等。对应的应用层协议主要有<code>SMTP TELNET HTTP FTP</code></li>
 </ul>
-<table>
+<h4 id="2-常用的熟知端口"><a href="#2-常用的熟知端口" class="headerlink" title="2.常用的熟知端口"></a>2.常用的熟知端口</h4><table>
 <thead>
 <tr>
 <th>应用程序</th>
@@ -411,6 +411,52 @@
 </tr>
 </tbody>
 </table>
+<h4 id="3-TCP报文首部"><a href="#3-TCP报文首部" class="headerlink" title="3.TCP报文首部"></a>3.TCP报文首部</h4><ul>
+<li>源端口和目的端口</li>
+<li>序号：TCP连接中传送的字节流中的<strong>每个字节</strong>都按顺序编号。例如：一段报文的序号字段值是301，而携带的数据共有100字段，显然下一个报文段的数据序号应该从401开始</li>
+<li>确认号：<strong>期望收到对方下一个报文的第一个数据字节的序号</strong>。例如：B收到了A发送过来的报文，其序列号字段是501，数据长度是200字节，这表明B正确收到了A发送的到序号700为止的数据。因此，B期望收到A的下一个数据序号是701，于是B在发送给A的确认报文段中把确认号置为701</li>
+<li>确认ACK：仅当ACK=1时<strong>确认号字段</strong>才有效。TCP规定，在<strong>建立连接后</strong>所有报文的传输都必须把ACK置1</li>
+<li>同步SYN：在<strong>连接建立时</strong>用来同步序号。当<strong>SYN=1，ACK=0</strong>，表明是连接请求报文；若同意连接，则响应报文中该使<strong>SYN=1，ACK=1</strong></li>
+<li>终止FIN，用来释放连接。当<strong>FIN=1</strong>表明此报文的发送方的数据已经发送完毕，并且要求释放<h4 id="4-TCP连接的建立-三次握手"><a href="#4-TCP连接的建立-三次握手" class="headerlink" title="4. TCP连接的建立/三次握手"></a>4. TCP连接的建立/三次握手</h4><blockquote>
+<p>最开始的时候客户端和服务器都是处于CLOSED状态，主动打开连接的是客户端，被动打开连接的时服务器</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器进入<strong>LISTEN</strong>(监听状态)</li>
+<li>TCP客户进程也是先创建传输控制块，然后向服务器发出连接请求报文，这是报文首部中的<strong>同步位SYN=1</strong>，同时选择一个<strong>初始序号seq=x</strong>，TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。此时，客户端进程进入<strong>SYN-SENT(同步已发送状态)</strong></li>
+<li>TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该<strong>SYN=1，ACK=1</strong>，确认位<strong>ack=x+1</strong>，同时也要为自己初始化一个序列号<strong>seq=y</strong>，这个报文也不能携带数据，但同样要消耗一个序号。此时TCP服务器进程进入了<strong>SYN-RCVD(同步收到)状态</strong></li>
+<li>TCP客户进程收到确认后，还要给服务器给出确认。确认报文的<strong>ACK=1,ack=y+1</strong>,自己的序列号为<strong>seq=x+1</strong>。TCP规定ACK报文段可以携带数据，但如果不携带数据则不消耗序号，这种情况下，下一个数据报文段的序号仍是seq=x+1。这是TCP连接已经建立，客户端进入<strong>ESTABLISHED(已建立连接)状态</strong></li>
+<li>当服务器收到客户端的确认后也进入<strong>ASTABLISHED状态</strong>，此后双方可以开始通信了<h4 id="4-为什么客户端最后还要发送一次确认呢"><a href="#4-为什么客户端最后还要发送一次确认呢" class="headerlink" title="4. 为什么客户端最后还要发送一次确认呢"></a>4. 为什么客户端最后还要发送一次确认呢</h4><blockquote>
+<p><strong>主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>如果使用的是两次握手建立连接，假设有这样一种场景，客户端发送了第一个请求连接并且没有丢失，只是因为在网络结点中滞留的时间太长了，由于TCP的客户端迟迟没有收到确认报文，以为服务器没有收到，此时重新向服务器发送这条报文，此后客户端和服务器经过两次握手完成连接，传输数据，然后关闭连接。此时此前滞留的那一次请求连接，网络通畅了到达了服务器，这个报文本该是失效的，但是，两次握手的机制将会让客户端和服务器再次建立连接，这将导致不必要的错误和资源的浪费。如果采用的是三次握手，就算是那一次失效的报文传送过来了，服务端接受到了那条失效报文并且回复了确认报文，但是客户端不会再次发出确认。由于服务器收不到确认，就知道客户端并没有请求连接。<h4 id="5-TCP连接的释放-四次挥手"><a href="#5-TCP连接的释放-四次挥手" class="headerlink" title="5. TCP连接的释放/四次挥手"></a>5. TCP连接的释放/四次挥手</h4><blockquote>
+<p>数据传输完毕后，双方都可释放连接。最开始的时候，客户端和服务器都是处于ESTABLISHED状态，然后客户端主动关闭，服务器被动关闭</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，<strong>FIN=1</strong>，其<strong>序列号为seq=u</strong>（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入<strong>FIN-WAIT-1（终止等待1）状态</strong>。TCP规定，FIN报文段即使不携带数据，也要消耗一个序号</li>
+<li>服务器收到连接释放报文，发出确认报文，<strong>ACK=1，ack=u+1</strong>，并且带上自己的序列号<strong>seq=v</strong>，此时，服务端就进入了<strong>CLOSE-WAIT（关闭等待）状态</strong>。TCP服务器通知高层的应用进程，客户端向服务器方向的连接就释放了，这时候处于<strong>半关闭状态</strong>，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间</li>
+<li>客户端收到服务器的确认请求后，此时，客户端就进入<strong>FIN-WAIT-2（终止等待2）状态</strong>，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）</li>
+<li>服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，<strong>FIN=1，ack=u+1</strong>，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为<strong>seq=w</strong>，此时，服务器就进入了<strong>LAST-ACK（最后确认）</strong>状态，等待客户端的确认</li>
+<li>客户端收到服务器的连接释放报文后，必须发出确认，<strong>ACK=1，ack=w+1</strong>，而自己的序列号是<strong>seq=u+1</strong>，此时，客户端就进入了<strong>TIME-WAIT（时间等待）状态</strong>。注意此时TCP连接还没有释放，必须经过<strong>2MSL（最长报文段寿命）的时间</strong>后，当客户端撤销相应的TCB后，才进入CLOSED状态</li>
+<li>服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些</li>
+</ol>
+<h4 id="6-为什么客户端最后还要等待2MSL"><a href="#6-为什么客户端最后还要等待2MSL" class="headerlink" title="6. 为什么客户端最后还要等待2MSL"></a>6. 为什么客户端最后还要等待2MSL</h4><ul>
+<li>MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。</li>
+<li>第一：保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文，并且会重启2MSL计时器。</li>
+<li>第二：防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样新的连接中不会出现旧连接的请求报文。</li>
+</ul>
+<h4 id="7-为什么建立连接是三次握手，关闭连接是四次挥手呢"><a href="#7-为什么建立连接是三次握手，关闭连接是四次挥手呢" class="headerlink" title="7. 为什么建立连接是三次握手，关闭连接是四次挥手呢"></a>7. 为什么建立连接是三次握手，关闭连接是四次挥手呢</h4><ul>
+<li>建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。<br>而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。</li>
+</ul>
+<h4 id="8-如果已经建立了连接，但是客户端突然出现故障了怎么办"><a href="#8-如果已经建立了连接，但是客户端突然出现故障了怎么办" class="headerlink" title="8. 如果已经建立了连接，但是客户端突然出现故障了怎么办"></a>8. 如果已经建立了连接，但是客户端突然出现故障了怎么办</h4><ul>
+<li>TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</li>
+</ul>
 
       
     </div>
@@ -581,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-TCP与UDP"><span class="nav-number">1.</span> <span class="nav-text">1. TCP与UDP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用的熟知端口"><span class="nav-number">2.</span> <span class="nav-text">2.常用的熟知端口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-TCP与UDP"><span class="nav-number">1.</span> <span class="nav-text">1. TCP与UDP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用的熟知端口"><span class="nav-number">2.</span> <span class="nav-text">2.常用的熟知端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-TCP报文首部"><span class="nav-number">3.</span> <span class="nav-text">3.TCP报文首部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-TCP连接的建立-三次握手"><span class="nav-number">4.</span> <span class="nav-text">4. TCP连接的建立/三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-为什么客户端最后还要发送一次确认呢"><span class="nav-number">5.</span> <span class="nav-text">4. 为什么客户端最后还要发送一次确认呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-TCP连接的释放-四次挥手"><span class="nav-number">6.</span> <span class="nav-text">5. TCP连接的释放/四次挥手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-为什么客户端最后还要等待2MSL"><span class="nav-number">7.</span> <span class="nav-text">6. 为什么客户端最后还要等待2MSL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-为什么建立连接是三次握手，关闭连接是四次挥手呢"><span class="nav-number">8.</span> <span class="nav-text">7. 为什么建立连接是三次握手，关闭连接是四次挥手呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-如果已经建立了连接，但是客户端突然出现故障了怎么办"><span class="nav-number">9.</span> <span class="nav-text">8. 如果已经建立了连接，但是客户端突然出现故障了怎么办</span></a></li></ol></div>
             
 
           </div>
