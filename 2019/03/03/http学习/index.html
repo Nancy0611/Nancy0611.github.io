@@ -82,14 +82,14 @@
 <meta name="description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
 <meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http学习">
+<meta property="og:title" content="http(1)">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/http学习/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Blog">
 <meta property="og:description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-19T03:39:01.437Z">
+<meta property="og:updated_time" content="2019-03-23T06:05:29.609Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http学习">
+<meta name="twitter:title" content="http(1)">
 <meta name="twitter:description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>http学习 | Nancy's Blog</title>
+  <title>http(1) | Nancy's Blog</title>
   
 
 
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http学习</h1>
+          <h1 class="post-title" itemprop="name headline">http(1)</h1>
         
 
         <div class="post-meta">
@@ -371,15 +371,47 @@
 <li>链路层：处理网络连接的硬件部分</li>
 </ul>
 </blockquote>
+<h5 id="1-2-OSI七层模型"><a href="#1-2-OSI七层模型" class="headerlink" title="1.2 OSI七层模型"></a>1.2 OSI七层模型</h5><ol>
+<li>应用层：负责对软件提供接口以使程序能使用网络服务，应用层提供的服务包括文件传输、文件管理以及电子邮件的信息处理</li>
+<li>表示层：应用程序和网络之间的翻译官，将数据按照网络能理解的方案进行格式化，即<strong>处理用户信息的表示问题</strong>，如编码、数据格式转换和加密解密等</li>
+<li>会话层：负责网络中两个节点之间建立和保持通信，包括：建立通信链接，保持会话过程通信链接的顺畅</li>
+<li>传输层：负责向两台主机中进程之间的通信提供通用的<strong>数据传输</strong>服务；TCP传输效率低，可靠性强，可用于传输可靠性要求高，数据量大的数据；UDP用于传输可靠性要求不高，数据量小的数据，比如QQ聊天数据就是通过UDP传输的</li>
+<li>网络层：用来处理在网络上流动的数据包，主要任务是通过路由选择算法，为报文或分组通过通信子网选择最适当的路径</li>
+<li>数据链路层：控制物理层和网络层之间的通信，把网络层的数据分割成物理层可以传输的帧</li>
+<li>物理层：利用传输介质为数据链路层提供物理连接，实现比特流的传输(二进制&lt;=&gt;电流)</li>
+</ol>
+<h4 id="第二章、简单的HTTP协议"><a href="#第二章、简单的HTTP协议" class="headerlink" title="第二章、简单的HTTP协议"></a>第二章、简单的HTTP协议</h4><blockquote>
+<p>HTTP是不保留状态的协议，即无状态协议，引入cookie可解决</p>
+</blockquote>
+<h5 id="2-1-常用的HTTP方法"><a href="#2-1-常用的HTTP方法" class="headerlink" title="2.1 常用的HTTP方法"></a>2.1 常用的HTTP方法</h5><blockquote>
+<p>告知服务器意图的HTTP方法</p>
+</blockquote>
+<ul>
+<li>GET：用来请求访问已被URI识别的资源；可通过URL传参给服务器</li>
+<li>POST：传输实体的主体；功能与GET相似，但一般不用GET，POST的主要目的并不是获取响应的主体内容</li>
+<li>PUT：传输文件；要求在报文主体包含文件内容，然后保存到请求URI指定的位置</li>
+<li>HEAD：获得报文首部；HEAD方法和GET方法一样，只是不返回报文主体部分，用于确认URI的有效性以及资源更新的日期时间</li>
+<li>DELETE：删除文件</li>
+<li>OPTIONS：查询相应URI支持的HTTP方法</li>
+<li>TRACE：追踪路径</li>
+<li>CONNECT：要求用隧道协议连接代理</li>
+</ul>
+<h5 id="2-2-HTTP-1-0和HTTP-1-1的一些区别"><a href="#2-2-HTTP-1-0和HTTP-1-1的一些区别" class="headerlink" title="2.2 HTTP 1.0和HTTP 1.1的一些区别"></a>2.2 HTTP 1.0和HTTP 1.1的一些区别</h5><ol>
+<li>HTTP1.0每进行1次HTTP请求都要建立和断开TCP连接，增加通信量的开销；HTTP1.1支持<strong>持久连接</strong>，旨在建立1次TCP连接后进行多次请求和响应的交互，只要任何一段没有明确提出断开连接，则保持TCP连接状态，持久连接使得多数请求以<strong>管线化</strong>方式发送成为可能，<strong>不用等待响应亦可直接发送下一个请求</strong></li>
+</ol>
 <h4 id="第三章、HTTP报文内的HTTP信息"><a href="#第三章、HTTP报文内的HTTP信息" class="headerlink" title="第三章、HTTP报文内的HTTP信息"></a>第三章、HTTP报文内的HTTP信息</h4><h5 id="3-1-HTTP报文"><a href="#3-1-HTTP报文" class="headerlink" title="3.1 HTTP报文"></a>3.1 HTTP报文</h5><blockquote>
 <p>用于HTTP协议交互的信息被称为HTTP报文，请求端（客户端）的 HTTP 报文叫做请求报文，响应端（服务器端）的叫做响应报文。</p>
 </blockquote>
-<h4 id="第四章、返回结果的HTTP状态码"><a href="#第四章、返回结果的HTTP状态码" class="headerlink" title="第四章、返回结果的HTTP状态码"></a>第四章、返回结果的HTTP状态码</h4><blockquote>
+<ul>
+<li>请求报文结构：报文首部（<strong>请求行、请求首部字段</strong>、通用首部字段、实体首部字段、其他）空行、报文主体</li>
+<li>响应报文结构：报文首部（<strong>状态行、响应报文首部</strong>、通用首部字段、实体首部字段、其他）空行、报文主体<h4 id="第四章、返回结果的HTTP状态码"><a href="#第四章、返回结果的HTTP状态码" class="headerlink" title="第四章、返回结果的HTTP状态码"></a>第四章、返回结果的HTTP状态码</h4><blockquote>
 <ul>
 <li>HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作</li>
 <li>状态码：以3位数字和原因短语组成，数字第一位指定了响应类别</li>
 </ul>
 </blockquote>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -390,9 +422,19 @@
 </thead>
 <tbody>
 <tr>
+<td> 1xx</td>
+<td>Informational（信息性状态码）</td>
+<td>接受的请求正在处理</td>
+</tr>
+<tr>
 <td> 2XX</td>
 <td>Success（成功状态码）</td>
 <td>请求正常处理完毕</td>
+</tr>
+<tr>
+<td> 3xx</td>
+<td>Redirection（重定向状态码）</td>
+<td>需要进行附加操作以完成请求</td>
 </tr>
 <tr>
 <td> 4XX</td>
@@ -402,36 +444,42 @@
 <tr>
 <td> 5XX</td>
 <td>Server Error（服务器错误状态码）</td>
-<td>服务器请求出错</td>
+<td>服务器处理请求出错</td>
 </tr>
 </tbody>
 </table>
 <h5 id="4-1-2XX-成功"><a href="#4-1-2XX-成功" class="headerlink" title="4.1 2XX 成功"></a>4.1 2XX 成功</h5><blockquote>
 <p>2XX 的响应结果表明请求被正常处理了</p>
+</blockquote>
 <ul>
 <li>200 OK 表示从客户端发来的请求在服务器端被正常处理了</li>
+<li>204 No Content 请求处理成功但没有资源可以返回</li>
+<li>206 Partial Content 客户端只是请求资源的一部分，服务器只对请求的部分资源执行GET方法，相应报文中通过Content-Range指定范围的资源</li>
 </ul>
+<h5 id="4-2-3XX-重定向"><a href="#4-2-3XX-重定向" class="headerlink" title="4.2 3XX 重定向"></a>4.2 3XX 重定向</h5><blockquote>
+<p>3XX响应结果表明浏览器需要执行某些特殊的处理以正确处理请求</p>
 </blockquote>
-<h5 id="4-2-4XX-客户端错误"><a href="#4-2-4XX-客户端错误" class="headerlink" title="4.2 4XX 客户端错误"></a>4.2 4XX 客户端错误</h5><blockquote>
-<p>4XX 的响应结果表明客户端是发生错误的原因所在</p>
 <ul>
+<li>301：永久性重定向</li>
+<li>302：临时重定向</li>
+<li>303：与302状态码有相似功能，只是它希望客户端在请求一个URI的时候，能通过GET方法重定向到另一个URI上</li>
+<li>304：发送附带条件的请求时，条件不满足时返回，与重定向无关</li>
+<li>307：临时重定向，与302类似，只是强制要求使用POST方法<h5 id="4-3-4XX-客户端错误"><a href="#4-3-4XX-客户端错误" class="headerlink" title="4.3 4XX 客户端错误"></a>4.3 4XX 客户端错误</h5><blockquote>
+<p>4XX 的响应结果表明客户端是发生错误的原因所在</p>
+</blockquote>
+</li>
 <li>400 Bad Request 表示请求报文中存在语法错误</li>
 <li>401 Unauthorized 表示发送的请求需要有通过 HTTP 认证（BASIC 认证、DIGEST 认证）的认证信息</li>
 <li>403 Forbidden 表明对请求资源的访问被服务器拒绝了</li>
-<li>404 Not Found 表明服务器上无法找到请求的资源</li>
-</ul>
-</blockquote>
-<h5 id="4-3-5XX-服务器错误"><a href="#4-3-5XX-服务器错误" class="headerlink" title="4.3 5XX 服务器错误"></a>4.3 5XX 服务器错误</h5><blockquote>
+<li>404 Not Found 表明服务器上无法找到请求的资源<h5 id="4-4-5XX-服务器错误"><a href="#4-4-5XX-服务器错误" class="headerlink" title="4.4 5XX 服务器错误"></a>4.4 5XX 服务器错误</h5><blockquote>
 <p>5XX 的响应结果表明服务器本身发生错误</p>
-<ul>
-<li>500 Internal Server Error 表明服务器端在执行请求时发生了错误</li>
-<li>503 Service Unavailable 表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求</li>
-</ul>
 </blockquote>
-<h4 id="第五章、与HTTP协作的Web服务器"><a href="#第五章、与HTTP协作的Web服务器" class="headerlink" title="第五章、与HTTP协作的Web服务器"></a>第五章、与HTTP协作的Web服务器</h4><blockquote>
+</li>
+<li>500 Internal Server Error 表明服务器端在执行请求时发生了错误（服务器内部错误）</li>
+<li>503 Service Unavailable 表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求（服务器正忙）<h4 id="第五章、与HTTP协作的Web服务器"><a href="#第五章、与HTTP协作的Web服务器" class="headerlink" title="第五章、与HTTP协作的Web服务器"></a>第五章、与HTTP协作的Web服务器</h4><blockquote>
 <p>一台 Web 服务器可搭建多个独立域名的 Web 网站，也可作为通信路<br>径上的中转服务器提升传输效率</p>
 </blockquote>
-<h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5><ul>
+<h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5></li>
 <li>HTTP/1.1 规范允许一台HTTP服务器搭建多个Web站点。比如，提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站。这是因为利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能<h5 id="5-2-通信数据转发程序"><a href="#5-2-通信数据转发程序" class="headerlink" title="5.2 通信数据转发程序"></a>5.2 通信数据转发程序</h5><blockquote>
 <p>HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据转发<br>的应用程序，例如代理、网关和隧道。它们可以配合服务器工作。<br>这些应用程序和服务器可以将请求转发给通信线路上的下一站服务<br>器，并且能接收从那台服务器发送的响应再转发给客户端。</p>
 <ul>
@@ -450,16 +498,94 @@
 <li>隧道可按要求建立起一条与其他服务器的通信线路，届时使用 SSL等加密手段进行通信</li>
 <li>隧道的目的是确保客户端能与服务器进行安全的通信。隧道本身不会去解析 HTTP 请求。也就是说，请求保持原样中转给之<br>后的服务器。隧道会在通信双方断开连接时结束。<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><blockquote>
 <ul>
-<li>缓存是指代理服务器或客户端本地磁盘内保存==的资源副本。利用缓存<br>可减少对源服务器的访问，因此也就节省了通信流量和通信时间。</li>
+<li>缓存是指<strong>代理服务器或客户端本地磁盘内保存</strong>的资源副本。利用缓存<br>可减少对源服务器的访问，因此也就节省了通信流量和通信时间。</li>
 <li>缓存服务器是代理服务器的一种</li>
 </ul>
 </blockquote>
 <h6 id="5-3-1-缓存的有效期限"><a href="#5-3-1-缓存的有效期限" class="headerlink" title="5.3.1 缓存的有效期限"></a>5.3.1 缓存的有效期限</h6></li>
 <li>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源<h6 id="5-3-2-客户端的缓存"><a href="#5-3-2-客户端的缓存" class="headerlink" title="5.3.2 客户端的缓存"></a>5.3.2 客户端的缓存</h6></li>
 <li>缓存不仅可以存在于缓存服务器内，还可以存在客户端浏览器中</li>
-<li>浏览器缓存如果有效，就不必再向服务器请求相同的资源了，可以直<br>接从本地磁盘内读取</li>
-<li>和缓存服务器相同的一点是，当判定==缓存过期==后，会向源服务<br>器确认资源的有效性。若判断浏览器缓存失效，浏览器会再次请求新<br>资源<h4 id="第六章、HTTP-首部"><a href="#第六章、HTTP-首部" class="headerlink" title="第六章、HTTP 首部"></a>第六章、HTTP 首部</h4></li>
+<li>浏览器缓存如果<strong>有效</strong>，就不必再向服务器请求相同的资源了，可以<strong>直<br>接从本地磁盘内读取</strong></li>
+<li>和缓存服务器相同的一点是，当判定<strong>缓存过期</strong>后，会向源服务<br>器确认资源的有效性。若判断浏览器<strong>缓存失效</strong>，浏览器会<strong>再次请求新<br>资源</strong></li>
 </ul>
+<h4 id="第六章、HTTP-首部"><a href="#第六章、HTTP-首部" class="headerlink" title="第六章、HTTP 首部"></a>第六章、HTTP 首部</h4><h5 id="常用的HTTP首部字段"><a href="#常用的HTTP首部字段" class="headerlink" title="常用的HTTP首部字段"></a>常用的HTTP首部字段</h5><ol>
+<li>通用首部字段（请求报文和响应报文都会使用的首部字段）</li>
+</ol>
+<ul>
+<li>Date：创建报文日期</li>
+<li>Connection：连接的管理</li>
+<li>Cache-Control：缓存的控制</li>
+<li>Transfer-Encording：报文主体的传输编码方式</li>
+</ul>
+<ol start="2">
+<li>请求首部字段</li>
+</ol>
+<ul>
+<li>Host：请求资源所在的服务器</li>
+<li>Accept：客户端可处理的媒体类型</li>
+<li>Accept-Charset：可接受的字符集</li>
+<li>Accept-Encoding：可接受的内容编码</li>
+<li>Accept-Language：可接受的自然语言</li>
+</ul>
+<ol start="3">
+<li>响应首部字段</li>
+</ol>
+<ul>
+<li>Accept-Ranges：可接受的字节范围</li>
+<li>Location：令客户端重新定向到的URI</li>
+<li>Server：HTTP服务器的安装信息</li>
+</ul>
+<ol start="4">
+<li>实体首部字段（请求报文与响应报文的实体部分使用的首部字段）</li>
+</ol>
+<ul>
+<li>Allow：资源可支持的HTTP方法</li>
+<li>Content-type：实体主体的类型</li>
+<li>Content-Encoding：实体主体适用的编码方式</li>
+<li>Content-Language：实体主体的自然语言</li>
+<li>Content-Length：实体主体的字节数</li>
+<li>Content-Range：实体主体的位置范围，一般用于发出部分请求时使用</li>
+</ul>
+<h4 id="第七章、确保Web安全的HTTPS"><a href="#第七章、确保Web安全的HTTPS" class="headerlink" title="第七章、确保Web安全的HTTPS"></a>第七章、确保Web安全的HTTPS</h4><h5 id="7-1-HTTP的缺点"><a href="#7-1-HTTP的缺点" class="headerlink" title="7.1 HTTP的缺点"></a>7.1 HTTP的缺点</h5><h6 id="7-1-1-通信使用明文可能被窃听"><a href="#7-1-1-通信使用明文可能被窃听" class="headerlink" title="7.1.1 通信使用明文可能被窃听"></a>7.1.1 通信使用明文可能被窃听</h6><blockquote>
+<p>加密处理可防止被窃听</p>
+<ul>
+<li>通信的加密：HTTP协议中没有加密机制，但可以通过和<code>SSL</code>(Secure Socket Layer,安全套接层)或<code>TLS</code>(Transport Layer Security,安全传输层协议)的组合使用，加密HTTP通信内容，用SSL建立安全通信线路之后，就可以在这条线路上进行HTTP通信了。与SSL组合使用的HTTP被称为HTTPS</li>
+<li>内容的加密：把HTTP报文里所含的内容进行加密处理，报文首部未被加密处理，报文主体会被加密处理</li>
+</ul>
+</blockquote>
+<h6 id="7-1-2-不验证通信方的身份就可能遭遇伪装"><a href="#7-1-2-不验证通信方的身份就可能遭遇伪装" class="headerlink" title="7.1.2 不验证通信方的身份就可能遭遇伪装"></a>7.1.2 不验证通信方的身份就可能遭遇伪装</h6><blockquote>
+<p>HTTP协议中的请求和响应不会对通信方进行确认</p>
+<ul>
+<li>查明对手的证书：使用SSL不仅提供加密处理，而且提供了一种被称为证书的手段，可用于确认通信方</li>
+</ul>
+</blockquote>
+<h6 id="7-1-3-无法证明报文完整性，可能已遭篡改"><a href="#7-1-3-无法证明报文完整性，可能已遭篡改" class="headerlink" title="7.1.3 无法证明报文完整性，可能已遭篡改"></a>7.1.3 无法证明报文完整性，可能已遭篡改</h6><blockquote>
+<p>所谓完整性是指信息的准确度</p>
+<ul>
+<li>接收到的内容有误：无法确认发出的请求/响应和接收到的请求/响应是前后相同的，可能会遇到“中间人攻击”<code>(MITM)</code>；请求或响应在传输途中，遭攻击者拦截并篡改内容的攻击叫“中间人攻击”</li>
+<li>有使用HTTP协议确定报文完整性的方法，常用的有MD5和SHA-1等散列值校验方法，以及用来确认文件的数字签名方法，但事实上并不便携可靠，有必要通过和其他协议(SSL)组合使用来实现。</li>
+</ul>
+</blockquote>
+<h5 id="7-2-HTTPS"><a href="#7-2-HTTPS" class="headerlink" title="7.2 HTTPS"></a>7.2 HTTPS</h5><blockquote>
+<p>HTTP加上加密处理和认证以及完整性保护后即是HTTPS。HTTPS并非应用层的一种新协议，只是HTTP通信接口部分用SSL和TLS协议代替而已</p>
+</blockquote>
+<h6 id="7-2-1-加密"><a href="#7-2-1-加密" class="headerlink" title="7.2.1 加密"></a>7.2.1 加密</h6><blockquote>
+<ul>
+<li>共享密钥加密：加密解密用同一个密钥，也叫对称密钥加密，如何安全发送密钥是个问题</li>
+<li>公开密钥加密：使用一对非对称的密钥；一把叫做私有密钥，不能让任何人知道；一把叫做公开密钥，可以随意发布；发送密文的一方用公钥加密，接收方用私钥解密，缺点是处理速度比较慢</li>
+<li>HTTPS采用共享密钥加密和公开密钥加密两者并用的混合加密机制：</li>
+</ul>
+<ol>
+<li>使用公开密钥加密方式安全地交换在稍后的共享密钥加密中要使用的密钥</li>
+<li>确保交换的密钥是安全的前提下，使用共享密钥加密方式进行通信</li>
+</ol>
+</blockquote>
+<h6 id="7-2-2-证明公开密钥正确性的证书"><a href="#7-2-2-证明公开密钥正确性的证书" class="headerlink" title="7.2.2 证明公开密钥正确性的证书"></a>7.2.2 证明公开密钥正确性的证书</h6><blockquote>
+<p>公开密钥加密方式存在问题：无法证明公开密钥本身就是货真价实的公开密钥</p>
+<ul>
+<li>解决：使用由数字证书认证机构(CA)和其相关机关颁发的公开密钥证书</li>
+</ul>
+</blockquote>
 
       
     </div>
@@ -634,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章、了解web及网络基础"><span class="nav-number">1.</span> <span class="nav-text">第一章、了解web及网络基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-TCP-IP协议族"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 TCP/IP协议族</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章、HTTP报文内的HTTP信息"><span class="nav-number">2.</span> <span class="nav-text">第三章、HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-HTTP报文"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 HTTP报文</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四章、返回结果的HTTP状态码"><span class="nav-number">3.</span> <span class="nav-text">第四章、返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-2XX-成功"><span class="nav-number">3.1.</span> <span class="nav-text">4.1 2XX 成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-4XX-客户端错误"><span class="nav-number">3.2.</span> <span class="nav-text">4.2 4XX 客户端错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-5XX-服务器错误"><span class="nav-number">3.3.</span> <span class="nav-text">4.3 5XX 服务器错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五章、与HTTP协作的Web服务器"><span class="nav-number">4.</span> <span class="nav-text">第五章、与HTTP协作的Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-用单台虚拟主机实现多个域名"><span class="nav-number">4.1.</span> <span class="nav-text">5.1 用单台虚拟主机实现多个域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-通信数据转发程序"><span class="nav-number">4.2.</span> <span class="nav-text">5.2 通信数据转发程序</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-1-代理"><span class="nav-number">4.2.1.</span> <span class="nav-text">5.2.1 代理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-2-网关"><span class="nav-number">4.2.2.</span> <span class="nav-text">5.2.2 网关</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-3-隧道"><span class="nav-number">4.2.3.</span> <span class="nav-text">5.2.3 隧道</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-保存资源的缓存"><span class="nav-number">4.3.</span> <span class="nav-text">5.3 保存资源的缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-1-缓存的有效期限"><span class="nav-number">4.3.1.</span> <span class="nav-text">5.3.1 缓存的有效期限</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-2-客户端的缓存"><span class="nav-number">4.3.2.</span> <span class="nav-text">5.3.2 客户端的缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六章、HTTP-首部"><span class="nav-number">5.</span> <span class="nav-text">第六章、HTTP 首部</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章、了解web及网络基础"><span class="nav-number">1.</span> <span class="nav-text">第一章、了解web及网络基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-TCP-IP协议族"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 TCP/IP协议族</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-2-OSI七层模型"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 OSI七层模型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章、简单的HTTP协议"><span class="nav-number">2.</span> <span class="nav-text">第二章、简单的HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-常用的HTTP方法"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 常用的HTTP方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-HTTP-1-0和HTTP-1-1的一些区别"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 HTTP 1.0和HTTP 1.1的一些区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章、HTTP报文内的HTTP信息"><span class="nav-number">3.</span> <span class="nav-text">第三章、HTTP报文内的HTTP信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-HTTP报文"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 HTTP报文</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四章、返回结果的HTTP状态码"><span class="nav-number">4.</span> <span class="nav-text">第四章、返回结果的HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-1-2XX-成功"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 2XX 成功</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-3XX-重定向"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 3XX 重定向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-4XX-客户端错误"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 4XX 客户端错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-4-5XX-服务器错误"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 5XX 服务器错误</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五章、与HTTP协作的Web服务器"><span class="nav-number">5.</span> <span class="nav-text">第五章、与HTTP协作的Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-用单台虚拟主机实现多个域名"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 用单台虚拟主机实现多个域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2-通信数据转发程序"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 通信数据转发程序</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-1-代理"><span class="nav-number">5.2.1.</span> <span class="nav-text">5.2.1 代理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-2-网关"><span class="nav-number">5.2.2.</span> <span class="nav-text">5.2.2 网关</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-2-3-隧道"><span class="nav-number">5.2.3.</span> <span class="nav-text">5.2.3 隧道</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3-保存资源的缓存"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 保存资源的缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-1-缓存的有效期限"><span class="nav-number">5.3.1.</span> <span class="nav-text">5.3.1 缓存的有效期限</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-3-2-客户端的缓存"><span class="nav-number">5.3.2.</span> <span class="nav-text">5.3.2 客户端的缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第六章、HTTP-首部"><span class="nav-number">6.</span> <span class="nav-text">第六章、HTTP 首部</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用的HTTP首部字段"><span class="nav-number">6.1.</span> <span class="nav-text">常用的HTTP首部字段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第七章、确保Web安全的HTTPS"><span class="nav-number">7.</span> <span class="nav-text">第七章、确保Web安全的HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#7-1-HTTP的缺点"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 HTTP的缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#7-1-1-通信使用明文可能被窃听"><span class="nav-number">7.1.1.</span> <span class="nav-text">7.1.1 通信使用明文可能被窃听</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-1-2-不验证通信方的身份就可能遭遇伪装"><span class="nav-number">7.1.2.</span> <span class="nav-text">7.1.2 不验证通信方的身份就可能遭遇伪装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-1-3-无法证明报文完整性，可能已遭篡改"><span class="nav-number">7.1.3.</span> <span class="nav-text">7.1.3 无法证明报文完整性，可能已遭篡改</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-2-HTTPS"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#7-2-1-加密"><span class="nav-number">7.2.1.</span> <span class="nav-text">7.2.1 加密</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-2-2-证明公开密钥正确性的证书"><span class="nav-number">7.2.2.</span> <span class="nav-text">7.2.2 证明公开密钥正确性的证书</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
