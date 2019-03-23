@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Blog">
 <meta property="og:description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-23T06:05:29.609Z">
+<meta property="og:updated_time" content="2019-03-23T06:10:51.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http(1)">
 <meta name="twitter:description" content="第一章、了解web及网络基础1.1 TCP/IP协议族 把与互联网相关联的协议集合起来总称为TCP/IP，TCP/IP协议族按层次分为：应用层、传输层、网络层和数据链路层  应用层：决定了向用户提供应用服务时通信的活动，包括FTP（文件传输协议）、DNS（域名系统）、HTTP协议等 传输层：对上层应用层，提供处于网络连接中的两台计算机之间的数据传输，包括TCP（传输控制协议）、UDP（用户数据报协">
@@ -371,7 +371,8 @@
 <li>链路层：处理网络连接的硬件部分</li>
 </ul>
 </blockquote>
-<h5 id="1-2-OSI七层模型"><a href="#1-2-OSI七层模型" class="headerlink" title="1.2 OSI七层模型"></a>1.2 OSI七层模型</h5><ol>
+<h5 id="1-2-OSI七层模型"><a href="#1-2-OSI七层模型" class="headerlink" title="1.2 OSI七层模型"></a>1.2 OSI七层模型</h5><blockquote>
+<ul>
 <li>应用层：负责对软件提供接口以使程序能使用网络服务，应用层提供的服务包括文件传输、文件管理以及电子邮件的信息处理</li>
 <li>表示层：应用程序和网络之间的翻译官，将数据按照网络能理解的方案进行格式化，即<strong>处理用户信息的表示问题</strong>，如编码、数据格式转换和加密解密等</li>
 <li>会话层：负责网络中两个节点之间建立和保持通信，包括：建立通信链接，保持会话过程通信链接的顺畅</li>
@@ -379,7 +380,8 @@
 <li>网络层：用来处理在网络上流动的数据包，主要任务是通过路由选择算法，为报文或分组通过通信子网选择最适当的路径</li>
 <li>数据链路层：控制物理层和网络层之间的通信，把网络层的数据分割成物理层可以传输的帧</li>
 <li>物理层：利用传输介质为数据链路层提供物理连接，实现比特流的传输(二进制&lt;=&gt;电流)</li>
-</ol>
+</ul>
+</blockquote>
 <h4 id="第二章、简单的HTTP协议"><a href="#第二章、简单的HTTP协议" class="headerlink" title="第二章、简单的HTTP协议"></a>第二章、简单的HTTP协议</h4><blockquote>
 <p>HTTP是不保留状态的协议，即无状态协议，引入cookie可解决</p>
 </blockquote>
@@ -404,14 +406,14 @@
 </blockquote>
 <ul>
 <li>请求报文结构：报文首部（<strong>请求行、请求首部字段</strong>、通用首部字段、实体首部字段、其他）空行、报文主体</li>
-<li>响应报文结构：报文首部（<strong>状态行、响应报文首部</strong>、通用首部字段、实体首部字段、其他）空行、报文主体<h4 id="第四章、返回结果的HTTP状态码"><a href="#第四章、返回结果的HTTP状态码" class="headerlink" title="第四章、返回结果的HTTP状态码"></a>第四章、返回结果的HTTP状态码</h4><blockquote>
+<li>响应报文结构：报文首部（<strong>状态行、响应报文首部</strong>、通用首部字段、实体首部字段、其他）空行、报文主体</li>
+</ul>
+<h4 id="第四章、返回结果的HTTP状态码"><a href="#第四章、返回结果的HTTP状态码" class="headerlink" title="第四章、返回结果的HTTP状态码"></a>第四章、返回结果的HTTP状态码</h4><blockquote>
 <ul>
 <li>HTTP状态码负责表示客户端HTTP请求的返回结果、标记服务器端的处理是否正常、通知出现的错误等工作</li>
 <li>状态码：以3位数字和原因短语组成，数字第一位指定了响应类别</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <table>
 <thead>
 <tr>
@@ -464,23 +466,31 @@
 <li>302：临时重定向</li>
 <li>303：与302状态码有相似功能，只是它希望客户端在请求一个URI的时候，能通过GET方法重定向到另一个URI上</li>
 <li>304：发送附带条件的请求时，条件不满足时返回，与重定向无关</li>
-<li>307：临时重定向，与302类似，只是强制要求使用POST方法<h5 id="4-3-4XX-客户端错误"><a href="#4-3-4XX-客户端错误" class="headerlink" title="4.3 4XX 客户端错误"></a>4.3 4XX 客户端错误</h5><blockquote>
+<li>307：临时重定向，与302类似，只是强制要求使用POST方法</li>
+</ul>
+<h5 id="4-3-4XX-客户端错误"><a href="#4-3-4XX-客户端错误" class="headerlink" title="4.3 4XX 客户端错误"></a>4.3 4XX 客户端错误</h5><blockquote>
 <p>4XX 的响应结果表明客户端是发生错误的原因所在</p>
-</blockquote>
-</li>
+<ul>
 <li>400 Bad Request 表示请求报文中存在语法错误</li>
 <li>401 Unauthorized 表示发送的请求需要有通过 HTTP 认证（BASIC 认证、DIGEST 认证）的认证信息</li>
 <li>403 Forbidden 表明对请求资源的访问被服务器拒绝了</li>
-<li>404 Not Found 表明服务器上无法找到请求的资源<h5 id="4-4-5XX-服务器错误"><a href="#4-4-5XX-服务器错误" class="headerlink" title="4.4 5XX 服务器错误"></a>4.4 5XX 服务器错误</h5><blockquote>
-<p>5XX 的响应结果表明服务器本身发生错误</p>
+<li>404 Not Found 表明服务器上无法找到请求的资源</li>
+</ul>
 </blockquote>
-</li>
+<h5 id="4-4-5XX-服务器错误"><a href="#4-4-5XX-服务器错误" class="headerlink" title="4.4 5XX 服务器错误"></a>4.4 5XX 服务器错误</h5><blockquote>
+<p>5XX 的响应结果表明服务器本身发生错误</p>
+<ul>
 <li>500 Internal Server Error 表明服务器端在执行请求时发生了错误（服务器内部错误）</li>
-<li>503 Service Unavailable 表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求（服务器正忙）<h4 id="第五章、与HTTP协作的Web服务器"><a href="#第五章、与HTTP协作的Web服务器" class="headerlink" title="第五章、与HTTP协作的Web服务器"></a>第五章、与HTTP协作的Web服务器</h4><blockquote>
+<li>503 Service Unavailable 表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求（服务器正忙）</li>
+</ul>
+</blockquote>
+<h4 id="第五章、与HTTP协作的Web服务器"><a href="#第五章、与HTTP协作的Web服务器" class="headerlink" title="第五章、与HTTP协作的Web服务器"></a>第五章、与HTTP协作的Web服务器</h4><blockquote>
 <p>一台 Web 服务器可搭建多个独立域名的 Web 网站，也可作为通信路<br>径上的中转服务器提升传输效率</p>
 </blockquote>
-<h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5></li>
-<li>HTTP/1.1 规范允许一台HTTP服务器搭建多个Web站点。比如，提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站。这是因为利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能<h5 id="5-2-通信数据转发程序"><a href="#5-2-通信数据转发程序" class="headerlink" title="5.2 通信数据转发程序"></a>5.2 通信数据转发程序</h5><blockquote>
+<h5 id="5-1-用单台虚拟主机实现多个域名"><a href="#5-1-用单台虚拟主机实现多个域名" class="headerlink" title="5.1 用单台虚拟主机实现多个域名"></a>5.1 用单台虚拟主机实现多个域名</h5><ul>
+<li>HTTP/1.1 规范允许一台HTTP服务器搭建多个Web站点。比如，提供Web托管服务（Web Hosting Service）的供应商，可以用一台服务器为多位客户服务，也可以以每位客户持有的域名运行各自不同的网站。这是因为利用了虚拟主机（Virtual Host，又称虚拟服务器）的功能</li>
+</ul>
+<h5 id="5-2-通信数据转发程序"><a href="#5-2-通信数据转发程序" class="headerlink" title="5.2 通信数据转发程序"></a>5.2 通信数据转发程序</h5><blockquote>
 <p>HTTP 通信时，除客户端和服务器以外，还有一些用于通信数据转发<br>的应用程序，例如代理、网关和隧道。它们可以配合服务器工作。<br>这些应用程序和服务器可以将请求转发给通信线路上的下一站服务<br>器，并且能接收从那台服务器发送的响应再转发给客户端。</p>
 <ul>
 <li>代理：是一种有转发功能的应用程序，它扮演了位于服务器和客户<br>端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时<br>也接收服务器返回的响应并转发给客户端</li>
@@ -488,22 +498,30 @@
 <li>隧道：是在相隔甚远的客户端和服务器两者之间进行中转，并保持双方<br>通信连接的应用程序</li>
 </ul>
 </blockquote>
-<h6 id="5-2-1-代理"><a href="#5-2-1-代理" class="headerlink" title="5.2.1 代理"></a>5.2.1 代理</h6></li>
+<h6 id="5-2-1-代理"><a href="#5-2-1-代理" class="headerlink" title="5.2.1 代理"></a>5.2.1 代理</h6><ul>
 <li>每次通过代理服务器转发请求或响应时，会追加写入<code>Via</code>首部信息，以标记出经过的主机信息</li>
 <li>使用代理服务器的理由有：利用缓存技术（稍后讲解）减少网络带宽的流量，组织内部针对特定网站的访问控制，以获取访问日志为主要目的，等等</li>
 <li>代理有多种使用方法，按两种基准分类：一种是是否使用缓存，另一种是是否会修改报文</li>
 <li>缓存代理：代理转发响应时，缓存代理（Caching Proxy）会预先将资源的副本<br>（缓存）保存在代理服务器上。当代理再次接收到对相同资源的请求时，就可以不从源服务器那里获取资源，而是将之前缓存的资源作为响应返回</li>
-<li>透明代理：转发请求或响应时，不对报文做任何加工的代理类型被称为透明代理<h6 id="5-2-2-网关"><a href="#5-2-2-网关" class="headerlink" title="5.2.2 网关"></a>5.2.2 网关</h6></li>
-<li>网关的工作机制和代理十分相似。而网关能使通信线路上的服务器提供非HTTP协议服务。利用网关能提高通信的安全性，因为可以在客户端与网关之间的通信<br>线路上加密以确保连接的安全<h6 id="5-2-3-隧道"><a href="#5-2-3-隧道" class="headerlink" title="5.2.3 隧道"></a>5.2.3 隧道</h6></li>
+<li>透明代理：转发请求或响应时，不对报文做任何加工的代理类型被称为透明代理</li>
+</ul>
+<h6 id="5-2-2-网关"><a href="#5-2-2-网关" class="headerlink" title="5.2.2 网关"></a>5.2.2 网关</h6><ul>
+<li>网关的工作机制和代理十分相似。而网关能使通信线路上的服务器提供非HTTP协议服务。利用网关能提高通信的安全性，因为可以在客户端与网关之间的通信<br>线路上加密以确保连接的安全</li>
+</ul>
+<h6 id="5-2-3-隧道"><a href="#5-2-3-隧道" class="headerlink" title="5.2.3 隧道"></a>5.2.3 隧道</h6><ul>
 <li>隧道可按要求建立起一条与其他服务器的通信线路，届时使用 SSL等加密手段进行通信</li>
-<li>隧道的目的是确保客户端能与服务器进行安全的通信。隧道本身不会去解析 HTTP 请求。也就是说，请求保持原样中转给之<br>后的服务器。隧道会在通信双方断开连接时结束。<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><blockquote>
+<li>隧道的目的是确保客户端能与服务器进行安全的通信。隧道本身不会去解析 HTTP 请求。也就是说，请求保持原样中转给之<br>后的服务器。隧道会在通信双方断开连接时结束。</li>
+</ul>
+<h5 id="5-3-保存资源的缓存"><a href="#5-3-保存资源的缓存" class="headerlink" title="5.3 保存资源的缓存"></a>5.3 保存资源的缓存</h5><blockquote>
 <ul>
 <li>缓存是指<strong>代理服务器或客户端本地磁盘内保存</strong>的资源副本。利用缓存<br>可减少对源服务器的访问，因此也就节省了通信流量和通信时间。</li>
 <li>缓存服务器是代理服务器的一种</li>
 </ul>
 </blockquote>
-<h6 id="5-3-1-缓存的有效期限"><a href="#5-3-1-缓存的有效期限" class="headerlink" title="5.3.1 缓存的有效期限"></a>5.3.1 缓存的有效期限</h6></li>
-<li>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源<h6 id="5-3-2-客户端的缓存"><a href="#5-3-2-客户端的缓存" class="headerlink" title="5.3.2 客户端的缓存"></a>5.3.2 客户端的缓存</h6></li>
+<h6 id="5-3-1-缓存的有效期限"><a href="#5-3-1-缓存的有效期限" class="headerlink" title="5.3.1 缓存的有效期限"></a>5.3.1 缓存的有效期限</h6><ul>
+<li>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源</li>
+</ul>
+<h6 id="5-3-2-客户端的缓存"><a href="#5-3-2-客户端的缓存" class="headerlink" title="5.3.2 客户端的缓存"></a>5.3.2 客户端的缓存</h6><ul>
 <li>缓存不仅可以存在于缓存服务器内，还可以存在客户端浏览器中</li>
 <li>浏览器缓存如果<strong>有效</strong>，就不必再向服务器请求相同的资源了，可以<strong>直<br>接从本地磁盘内读取</strong></li>
 <li>和缓存服务器相同的一点是，当判定<strong>缓存过期</strong>后，会向源服务<br>器确认资源的有效性。若判断浏览器<strong>缓存失效</strong>，浏览器会<strong>再次请求新<br>资源</strong></li>
