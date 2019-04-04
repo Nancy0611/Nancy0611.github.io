@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/浏览器缓存/img1.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/浏览器缓存/img2.png">
-<meta property="og:updated_time" content="2019-04-04T17:35:05.052Z">
+<meta property="og:updated_time" content="2019-04-04T17:39:21.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器缓存">
 <meta name="twitter:description" content="浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无论对于网站运营者或者用户，带宽都代表着金钱，过多的带宽消耗，只会便宜了网络运">
@@ -497,13 +497,13 @@
 <tbody>
 <tr>
 <td>ETag</td>
-<td>fd56273325a2114818df4f29a628226d</td>
+<td>“fd56273325a2114818df4f29a628226d”</td>
 <td>响应</td>
 <td>告诉浏览器当前资源在服务器的唯一标识符（生成规则又服务器决定）</td>
 </tr>
 <tr>
 <td>If-None-Match</td>
-<td>fd56273325a2114818df4f29a628226d</td>
+<td>“fd56273325a2114818df4f29a628226d”</td>
 <td>请求</td>
 <td><font color="#ff0000">当资源过期时</font>（使用Cache-Control标识的max-age），发现<font color="#ff0000">资源具有Etage声明</font>，则再次向web服务器请求时带上头If-None-Match（Etag的值）。web服务器收到请求后发现有头If-None-Match则与被请求资源的相应校验串进行比对，<font color="#ff0000">决定返回200或304</font></td>
 </tr>
