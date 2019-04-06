@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="浏览器,缓存,">
+  <meta name="keywords" content="HTTP相关,浏览器,缓存,">
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无论对于网站运营者或者用户，带宽都代表着金钱，过多的带宽消耗，只会便宜了网络运">
-<meta name="keywords" content="浏览器,缓存">
+<meta name="description" content="笔记参考来源 这个blog内容也不错 关于持久化存储和http缓存   浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无">
+<meta name="keywords" content="HTTP相关,浏览器,缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器缓存">
 <meta property="og:url" content="http://yoursite.com/2019/04/05/浏览器缓存/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Blog">
-<meta property="og:description" content="浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无论对于网站运营者或者用户，带宽都代表着金钱，过多的带宽消耗，只会便宜了网络运">
+<meta property="og:description" content="笔记参考来源 这个blog内容也不错 关于持久化存储和http缓存   浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/浏览器缓存/img1.png">
 <meta property="og:image" content="http://yoursite.com/2019/04/05/浏览器缓存/img2.png">
-<meta property="og:updated_time" content="2019-04-04T17:39:21.515Z">
+<meta property="og:updated_time" content="2019-04-06T12:46:25.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器缓存">
-<meta name="twitter:description" content="浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无论对于网站运营者或者用户，带宽都代表着金钱，过多的带宽消耗，只会便宜了网络运">
+<meta name="twitter:description" content="笔记参考来源 这个blog内容也不错 关于持久化存储和http缓存   浏览器缓存 浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。 当下一个请求来到的时候，如果是相同的URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。  为什么使用缓存 减少网络带宽消耗 无">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/05/浏览器缓存/img1.png">
 
 
@@ -365,7 +365,14 @@
       
 
       
-        <h4 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h4><ul>
+        <blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/slly/p/6732749.html" target="_blank" rel="noopener">笔记参考来源</a></li>
+<li><a href="http://obkoro1.com/2018/06/09/%E6%B5%85%E6%9E%90HTTP%E7%BC%93%E5%AD%98%E7%9A%84%E6%9C%BA%E5%88%B6-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">这个blog内容也不错</a></li>
+<li><a href="https://www.jianshu.com/p/71163b408940" target="_blank" rel="noopener">关于持久化存储和http缓存</a></li>
+</ul>
+</blockquote>
+<h4 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h4><ul>
 <li>浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在浏览器中；缓存会根据进来的请求保存输出内容的副本。</li>
 <li>当下一个请求来到的时候，如果是<strong>相同的URL</strong>，缓存会根据<strong>缓存机制</strong>决定是直接使用<strong>副本</strong>响应访问请求，还是向<strong>源服务器</strong>再次发送请求。</li>
 </ul>
@@ -419,9 +426,9 @@
 <table>
 <thead>
 <tr>
-<th>消&nbsp;息&nbsp;报&nbsp;头</th>
-<th>值/实例</th>
-<th>类型</th>
+<th>&nbsp;&nbsp;消&nbsp;&nbsp;息&nbsp;&nbsp;报&nbsp;&nbsp;头&nbsp;&nbsp;</th>
+<th>值&nbsp;/&nbsp;实&nbsp;例</th>
+<th>类&nbsp;型</th>
 <th>作用</th>
 </tr>
 </thead>
@@ -488,9 +495,9 @@
 <table>
 <thead>
 <tr>
-<th>消&nbsp;息&nbsp;报&nbsp;头</th>
-<th>值/实例</th>
-<th>类型</th>
+<th>&nbsp;&nbsp;消&nbsp;&nbsp;息&nbsp;&nbsp;报&nbsp;&nbsp;头&nbsp;&nbsp;</th>
+<th>值&nbsp;/&nbsp;实&nbsp;例</th>
+<th>类&nbsp;型</th>
 <th>作用</th>
 </tr>
 </thead>
@@ -509,9 +516,91 @@
 </tr>
 </tbody>
 </table>
+<ol start="3">
+<li><strong>Cache-Control</strong>与Expires</li>
+</ol>
+<ul>
+<li>Cache-Control与Expires的作用一致，都是指明当前资源的<strong>有效期</strong>，<strong>控制浏览器是否直接从浏览器缓存取数据还是重新发请求到服务器取数据</strong>。只不过Cache-Control的选择更多，设置更细致，如果同时设置的话，其优先级高于Expires</li>
+</ul>
+<ol start="4">
+<li>Last-Modified/Etag与<strong>Cache-Control/Expires</strong></li>
+</ol>
+<ul>
+<li>配置Last-Modified/ETag的情况下，浏览器再次访问统一URI的资源，还是会<strong>发送请求</strong>到服务器询问文件是否已经修改，如果没有，服务器会只发送一个304回给浏览器，告诉浏览器直接从自己本地的缓存取数据；如果修改过那就整个数据重新发给浏览器</li>
+<li>Cache-Control/Expires则不同，如果检测到本地的缓存还是有效的时间范围内，浏览器直接使用本地副本，<strong>不会发送任何请求</strong>。两者一起使用时，Cache-Control/Expires的优先级要高于Last-Modified/ETag。即当本地副本根据Cache-Control/Expires发现还在有效期内时，则不会再次发送请求去服务器询问修改时间（Last-Modified）或实体标识（Etag）了</li>
+<li>一般情况下，使用Cache-Control/Expires会配合Last-Modified/ETag一起使用，因为即使服务器设置缓存时间, 当用户点击“刷新”按钮时，浏览器会忽略缓存继续向服务器发送请求，这时Last-Modified/ETag将能够很好利用304，从而减少响应开销</li>
+</ul>
+<ol start="5">
+<li>Last-Modified与<strong>Etag</strong></li>
+</ol>
+<ul>
+<li>Etag是服务器自动生成或者由开发者生成的对应资源在服务器端的唯一标识符，能够更加准确的控制缓存。Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。Etag的服务器生成规则和强弱Etag的相关内容可以参考</li>
+</ul>
+<ol start="6">
+<li>Last-Modified/If-Modified-Since要配合Cache-Control使用，Etag/If-None-Match也要配合Cache-Control使用</li>
+</ol>
 <h4 id="浏览器HTTP请求流程"><a href="#浏览器HTTP请求流程" class="headerlink" title="浏览器HTTP请求流程"></a>浏览器HTTP请求流程</h4><ol>
 <li>第一次请求<br><img src="/2019/04/05/浏览器缓存/img1.png" alt="第一次请求"></li>
-<li>再次请求<br><img src="/2019/04/05/浏览器缓存/img2.png" alt="再次请求"></li>
+<li><p>再次请求<br><img src="/2019/04/05/浏览器缓存/img2.png" alt="再次请求"></p>
+</li>
+<li><p>浏览器第一次加载资源，服务器返回200，浏览器将资源文件从服务器上请求下载下来，并把response header及该请求的返回时间一并缓存</p>
+</li>
+<li>下一次加载资源时，先比较当前时间和上一次返回200时的时间差，如果没有超过cache-control设置的max-age，则没有过期，<strong>命中强缓存</strong>，不发请求直接从本地缓存读取文件（如果浏览器不支持HTTP1.1，则用expires判断是否过期）；如果过期，则向服务器发送header带有If-None_Match和If-Modified-Since的请求</li>
+<li>服务器收到请求后，<strong>优先根据Etag</strong>的值判断被请求的文件有没有做修改，Etag值一致则没有修改，<strong>命中协商缓存，返回304</strong>；如果<strong>不一致则有改动</strong>，直接返回新的资源文件带上新的Etag值并返回*<em>200</em></li>
+<li>如果服务器收到的请求没有Etag值，则将If-Modified-Since和被请求文件的最后修改时间做对比，<strong>一致则命中协商缓存，返回304</strong>；不一致则返回新的<strong>last-modified和文件并返回200</strong>；<blockquote>
+<ul>
+<li>强缓存：浏览器在规定时间内强制使用浏览器内的缓存</li>
+<li>协商缓存：询问服务器是否需要使用浏览器缓存，命中情况如下：<ul>
+<li>If-None-Match与被请求资源的相应校验值对比，一致则命中</li>
+<li>If-Modified-Since与被请求文件的最后修改时间对比，一致则命中</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="用户行为与缓存"><a href="#用户行为与缓存" class="headerlink" title="用户行为与缓存"></a>用户行为与缓存</h4><table>
+<thead>
+<tr>
+<th>用户操作</th>
+<th>Expires/Cache-Control</th>
+<th>Last-Modified/Etag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地址栏回车</td>
+<td>有效</td>
+<td>有效</td>
+</tr>
+<tr>
+<td>页面链接跳转</td>
+<td>有效</td>
+<td>有效</td>
+</tr>
+<tr>
+<td>新开窗口</td>
+<td>有效</td>
+<td>有效</td>
+</tr>
+<tr>
+<td>前进后退</td>
+<td>有效</td>
+<td>有效</td>
+</tr>
+<tr>
+<td>F5刷新</td>
+<td>无效<br>BR重置max-age=0</td>
+<td>有效</td>
+</tr>
+</tbody>
+</table>
+<h4 id="不能缓存的请求"><a href="#不能缓存的请求" class="headerlink" title="不能缓存的请求"></a>不能缓存的请求</h4><ol>
+<li>HTTP信息头中包含Cache-Control:no-cache，pragma:no-cache（HTTP1.0），或Cache-Control:max-age=0等告诉浏览器不用缓存的请求</li>
+<li>需要根据Cookie，认证信息等决定输入内容的动态请求是不能被缓存的</li>
+<li>经过HTTPS安全加密的请求（有人也经过测试发现，ie其实在头部加入Cache-Control：max-age信息，firefox在头部加入Cache-Control:Public之后，能够对HTTPS的资源进行缓存</li>
+<li>POST请求无法被缓存</li>
+<li>HTTP响应头中不包含Last-Modified/Etag，也不包含Cache-Control/Expires的请求无法被缓存</li>
 </ol>
 
       
@@ -529,6 +618,8 @@
     <footer class="post-footer">
       
         <div class="post-tags">
+          
+            <a href="/tags/HTTP相关/" rel="tag"><i class="fa fa-tag"></i> HTTP相关</a>
           
             <a href="/tags/浏览器/" rel="tag"><i class="fa fa-tag"></i> 浏览器</a>
           
@@ -554,6 +645,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/06/客户端存储/" rel="prev" title="客户端存储">
+                客户端存储 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -630,7 +725,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -652,7 +747,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -685,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">浏览器缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用缓存"><span class="nav-number">2.</span> <span class="nav-text">为什么使用缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的缓存规则"><span class="nav-number">3.</span> <span class="nav-text">浏览器的缓存规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充"><span class="nav-number">4.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器缓存的控制"><span class="nav-number">5.</span> <span class="nav-text">浏览器缓存的控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器HTTP请求流程"><span class="nav-number">6.</span> <span class="nav-text">浏览器HTTP请求流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">浏览器缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用缓存"><span class="nav-number">2.</span> <span class="nav-text">为什么使用缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器的缓存规则"><span class="nav-number">3.</span> <span class="nav-text">浏览器的缓存规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充"><span class="nav-number">4.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器缓存的控制"><span class="nav-number">5.</span> <span class="nav-text">浏览器缓存的控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器HTTP请求流程"><span class="nav-number">6.</span> <span class="nav-text">浏览器HTTP请求流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户行为与缓存"><span class="nav-number">7.</span> <span class="nav-text">用户行为与缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不能缓存的请求"><span class="nav-number">8.</span> <span class="nav-text">不能缓存的请求</span></a></li></ol></div>
             
 
           </div>

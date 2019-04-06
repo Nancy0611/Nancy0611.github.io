@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Blog">
 <meta property="og:description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &apos;文章名称&apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主题时首页显示的文章列">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-19T03:39:31.608Z">
+<meta property="og:updated_time" content="2019-04-06T12:55:36.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github-hexo-搭建博客">
 <meta name="twitter:description" content="添加自己的博客文章 在终端窗口下，定位到Hexo站点目录下  1hexo new post &apos;文章名称&apos; 生成文档在 博客/source/_post/文章名称.md，hexo会自动编译markdown文件  编辑文档 重新发布  123hexo cleanhexo g(generate)hexo d(deploy) next主题设置  next是Hexo的一个博客主题，使用该主题时首页显示的文章列">
@@ -386,6 +386,22 @@
 <ol start="4">
 <li>将<code>enable</code>对应的<code>false</code>改为<code>true</code>，然后终端输入<code>hexo d -g</code>再进入主页刷新，问题就解决了</li>
 </ol>
+<h4 id="给自己的Hexo博客添加图片"><a href="#给自己的Hexo博客添加图片" class="headerlink" title="给自己的Hexo博客添加图片"></a>给自己的Hexo博客添加图片</h4><ol>
+<li>把hexo目录下的_config.yml里的post_asset_folder:设置为true</li>
+<li>在hexo目录下执行</li>
+</ol>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-<span class="built_in">image</span> --<span class="built_in">save</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>在hexo目录下<code>Git Bash Here</code>，运行如下指令生成md博客，会在_post目录下看到一个与博客同名的文件夹</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> n <span class="string">'博客名'</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>将想要上传的图片先扔到文件夹下，然后在博客中使用markdown的格式引入图片</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">你想要输入的替代文字</span>](<span class="link">name.jpg</span>)</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>使用hexo g部署的时候，进入<code>public/2019/03/02/index.html</code>文件中查看相关字段，发现html标签内的语句是`img src=’2019/03/02/xxx/name.jpg’就成功了</li>
+</ol>
 
       
     </div>
@@ -505,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +543,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -560,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加自己的博客文章"><span class="nav-number">1.</span> <span class="nav-text">添加自己的博客文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next主题设置"><span class="nav-number">2.</span> <span class="nav-text">next主题设置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加自己的博客文章"><span class="nav-number">1.</span> <span class="nav-text">添加自己的博客文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#next主题设置"><span class="nav-number">2.</span> <span class="nav-text">next主题设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给自己的Hexo博客添加图片"><span class="nav-number">3.</span> <span class="nav-text">给自己的Hexo博客添加图片</span></a></li></ol></div>
             
 
           </div>
