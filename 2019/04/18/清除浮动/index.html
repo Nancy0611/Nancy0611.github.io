@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Nancy&#39;s Blog">
 <meta property="og:description" content="一、相关属性1. clear clear属性只会对自身起作用，而不会影响其他元素。如果一个元素的右侧有一浮动对象，而这个元素设置了不允许右边有浮动对象，即clear：right，则这个元素会自动下移一格，达到本元素右边没有浮动对象的目的     值 属性     none 默认值，允许两边都可以有浮动   left 不允许左边有浮动对象   right 不允许右边有浮动对象   both 不允许有">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-18T05:18:41.649Z">
+<meta property="og:updated_time" content="2019-04-18T05:26:32.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="清除浮动">
 <meta name="twitter:description" content="一、相关属性1. clear clear属性只会对自身起作用，而不会影响其他元素。如果一个元素的右侧有一浮动对象，而这个元素设置了不允许右边有浮动对象，即clear：right，则这个元素会自动下移一格，达到本元素右边没有浮动对象的目的     值 属性     none 默认值，允许两边都可以有浮动   left 不允许左边有浮动对象   right 不允许右边有浮动对象   both 不允许有">
@@ -407,11 +407,11 @@
 <li>添加的内容不会出现在DOM中，不会改变文档内容，不可复制，仅仅是在css渲染层加入，所以不要用它们来展示有实际意义的内容，尽量使用它们显示修饰性内容，比如图标</li>
 <li>:before会在内容之前“添加”一个元素，:after会在内容之后“添加”一个元素</li>
 <li>:before和::after下必须配合content属性来使用，用于在定义插入的内容，必须有值，至少是空</li>
-<li>默认情况下伪类元素的display是inline<h4 id="三、浮动清除"><a href="#三、浮动清除" class="headerlink" title="三、浮动清除"></a>三、浮动清除</h4><blockquote>
+<li>默认情况下伪类元素的display是inline</li>
+</ul>
+<h4 id="三、浮动清除"><a href="#三、浮动清除" class="headerlink" title="三、浮动清除"></a>三、浮动清除</h4><blockquote>
 <p>清除浮动主要是为了解决：父元素因为子级元素浮动引起的内部高度为0的问题</p>
 </blockquote>
-</li>
-</ul>
 <ol>
 <li>父级添加overflow属性 <ul>
 <li>做法：父元素添加overflow:hidden</li>
