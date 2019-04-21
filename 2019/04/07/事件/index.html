@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Javascript基础,">
 
 
 
@@ -79,14 +79,20 @@
 
 
 
+<meta name="description" content="1. 事件流 事件流描述的是从页面中接收事件的顺序  1.1 事件冒泡流  事件开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）  1.2 事件捕获流  不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件  1.3 DOM事件流  DOM2级事件规定的事件流包括三个阶段 事件捕获阶段 处于目标阶段 事件冒泡阶段     2. 事件">
+<meta name="keywords" content="Javascript基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事件">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/事件/index.html">
 <meta property="og:site_name" content="Nancy&#39;s Blog">
+<meta property="og:description" content="1. 事件流 事件流描述的是从页面中接收事件的顺序  1.1 事件冒泡流  事件开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）  1.2 事件捕获流  不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件  1.3 DOM事件流  DOM2级事件规定的事件流包括三个阶段 事件捕获阶段 处于目标阶段 事件冒泡阶段     2. 事件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T06:45:36.877Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/07/事件/1.jpg">
+<meta property="og:updated_time" content="2019-04-21T06:33:53.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件">
+<meta name="twitter:description" content="1. 事件流 事件流描述的是从页面中接收事件的顺序  1.1 事件冒泡流  事件开始时由最具体的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）  1.2 事件捕获流  不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件  1.3 DOM事件流  DOM2级事件规定的事件流包括三个阶段 事件捕获阶段 处于目标阶段 事件冒泡阶段     2. 事件">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/07/事件/1.jpg">
 
 
 
@@ -309,6 +315,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -336,7 +364,181 @@
       
 
       
-        
+        <h3 id="1-事件流"><a href="#1-事件流" class="headerlink" title="1. 事件流"></a>1. 事件流</h3><blockquote>
+<p>事件流描述的是从页面中接收事件的顺序</p>
+</blockquote>
+<p>1.1 事件冒泡流</p>
+<ul>
+<li>事件开始时由<strong>最具体</strong>的元素（文档中嵌套层次最深的那个节点）接收，然后逐级向上传播到较为<strong>不具体</strong>的节点（文档）</li>
+</ul>
+<p>1.2 事件捕获流</p>
+<ul>
+<li><strong>不太具体</strong>的节点应该更早接收到事件，而<strong>最具体</strong>的节点应该最后接收到事件</li>
+</ul>
+<p>1.3 DOM事件流</p>
+<ul>
+<li>DOM2级事件规定的事件流包括三个阶段<ul>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2019/04/07/事件/1.jpg" alt></p>
+<h3 id="2-事件处理程序"><a href="#2-事件处理程序" class="headerlink" title="2. 事件处理程序"></a>2. 事件处理程序</h3><blockquote>
+<ul>
+<li>事件就是用户或者浏览器自身执行的某种动作，比如click、load、mouseover，都是事件的名称</li>
+<li>响应某个事件的函数就叫做事件处理程序</li>
+</ul>
+</blockquote>
+<h4 id="2-1-HTML事件处理程序"><a href="#2-1-HTML事件处理程序" class="headerlink" title="2.1 HTML事件处理程序"></a>2.1 HTML事件处理程序</h4><ul>
+<li>某个元素支持的每种事件，都可以使用一个与相应事件处理程序同名的HTML特性来指定</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">showMessage</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        alert(<span class="string">"Hello World!"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">button</span>&gt;</span> value="Click Me" onclick="showMessage()" /&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>缺点<ol>
+<li>存在时差问题：上面例子中假设在页面解析showMessage()函数之前就单击了按钮，就会引发错误</li>
+<li>扩展事件处理程序的作用域链在不同浏览器中会导致不同结果</li>
+<li>HTML与Javascript代码紧密耦合</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-2-DOM0级事件处理程序"><a href="#2-2-DOM0级事件处理程序" class="headerlink" title="2.2 DOM0级事件处理程序"></a>2.2 DOM0级事件处理程序</h4><ul>
+<li>将一个函数赋值给一个事件处理程序属性</li>
+<li><p>以这种方式添加的事件处理程序会在事件流的<strong>冒泡阶段</strong>被处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn=<span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Clicked"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除事件处理程序</span></span><br><span class="line">btn.onclick=<span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>优点</p>
+<ul>
+<li>简单</li>
+<li>具有跨浏览器的优势</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>只能给一个事件绑定一个响应函数，重复绑定会覆盖之前的绑定 </li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-DOM2级事件处理程序"><a href="#2-3-DOM2级事件处理程序" class="headerlink" title="2.3 DOM2级事件处理程序"></a>2.3 DOM2级事件处理程序</h4><ul>
+<li>DOM2级事件定义了两个方法<ul>
+<li>处理指定事件处理程序：addEventListener()</li>
+<li>删除事件处理程序：removeEventListener()</li>
+<li>接受3个参数，分别是：<ul>
+<li>要处理的事件名</li>
+<li>作为事件处理程序的函数</li>
+<li>布尔值<ul>
+<li>true：表示在捕获阶段调用事件处理程序</li>
+<li>false：表示在冒泡阶段调用事件处理程序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>好处：可以添加多个事件处理程序，事件处理程序会按照添加顺序触发</li>
+<li>大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段</li>
+</ul>
+<h4 id="2-4-执行顺序"><a href="#2-4-执行顺序" class="headerlink" title="2.4 执行顺序"></a>2.4 执行顺序</h4><blockquote>
+<p><a href="https://www.cnblogs.com/guangyan/p/6686013.html" target="_blank" rel="noopener">参考链接</a></p>
+</blockquote>
+<ul>
+<li>目标事件在哪一层，事件流就在哪一层回流，若点击的是外层outer，即使在outer事件下还有许多子孙节点，事件流都不会在oute之后往内流，此时inner上的事件不会被触发</li>
+<li>若事件是在“处于目标阶段”，执行顺序取决的不再是捕获还是冒泡，而是谁在代码中先注册</li>
+<li>如果DOM 0级和DOM 2级事件同时存在<ul>
+<li>当绑定DOM 0级的事件元素<font color="red">不是目标元素</font>时，DOM 0级事件的处理是在冒泡阶段处理的，并按事件注册的先后顺序执行（W3C先注册的先执行）</li>
+<li>当绑定DOM 0级事件的元素是<font color="red">目标元素</font>时，则不论是捕获阶段绑定的处理函数，还是冒泡阶段绑定的处理函数以及DOM 0级事件处理函数，它们的执行顺序都是按照注册的顺序执行（W3C先注册的先执行）</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-内存和性能"><a href="#3-内存和性能" class="headerlink" title="3. 内存和性能"></a>3. 内存和性能</h3><blockquote>
+<p>添加到页面上的事件处理程序数量将直接关系到<strong>页面的整体运行性能</strong></p>
+<ul>
+<li>每个函数都是对象，都会占用内存，内存中的对象越多，性能就越差</li>
+<li>必须实现指定所有事件处理程序而导致的DOM访问次数，会延迟整个页面的交互就绪时间</li>
+</ul>
+</blockquote>
+<ul>
+<li>解决方法<ul>
+<li>事件委托，减少建立连接的数量</li>
+<li>移除事件处理程序，减少内存中那些过时不用的“空事件处理程序”</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-1-事件委托-事件代理"><a href="#3-1-事件委托-事件代理" class="headerlink" title="3.1 事件委托/事件代理"></a>3.1 事件委托/事件代理</h4><blockquote>
+<p>解决“事件处理程序过多”的问题</p>
+</blockquote>
+<ul>
+<li>事件代理，用到了javascript事件中的两个特性：事件冒泡和目标元素。使用事件代理，可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素冒泡上来，并且可以得知这个事件是从哪个元素开始的</li>
+</ul>
+<h5 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h5><p>监听列表中多项li的情况：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item1"</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item2"</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item3"</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"item4"</span>&gt;</span>item4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>实现当鼠标点击某一个li时输出该li的内容，通常写法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ulNode = <span class="built_in">document</span>.getElementById(<span class="string">"list"</span>);</span><br><span class="line">    <span class="keyword">const</span> liNodes = ulNode.children;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;liNodes.length; i++)&#123;</span><br><span class="line">        liNodes[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(e.target.innerHTML);</span><br><span class="line">        &#125;, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用事件代理改进后：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> ulNode=<span class="built_in">document</span>.getElementById(<span class="string">"list"</span>);</span><br><span class="line">    ulNode.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">/*判断目标事件是否为li*/</span></span><br><span class="line">        <span class="keyword">if</span>(e.target &amp;&amp; e.target.nodeName.toUpperCase()==<span class="string">"LI"</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(e.target.innerHTML);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>相比之下，这段代码的事前消耗更低，因为只需要取一个DOM元素，只添加了一个事件处理程序，占用的内存更少</p>
+<h4 id="3-2-移除事件处理程序"><a href="#3-2-移除事件处理程序" class="headerlink" title="3.2 移除事件处理程序"></a>3.2 移除事件处理程序</h4><ol>
+<li>从文档中移除带有事件处理程序的元素时，原来添加到元素中的事件处理程序极有可能无法被当作垃圾回收，可以的话最好<strong>手工移除事件处理程序</strong></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"myDiv"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Click Me"</span> <span class="attr">id</span>=<span class="string">"myBtn"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn=<span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span></span><br><span class="line"><span class="actionscript">    btn.onclick=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//先执行某些操作</span></span></span><br><span class="line"><span class="actionscript">        btn.click=<span class="literal">null</span>;<span class="comment">//移除事件处理程序</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">"myDiv"</span>).innerHTML=<span class="string">"Processing..."</span>;</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>卸载页面的时候，如果在页面被卸载之前没有清理干净事件处理程序，那么它们就会滞留在内存中。一般最好的做法是在页面卸载之前先<strong>通过onunload事件处理程序移除所有事件处理程序</strong>（相对于浏览器页面间来回切换或者单击刷新按钮）</li>
+</ol>
+<h3 id="4-事件对象"><a href="#4-事件对象" class="headerlink" title="4. 事件对象"></a>4. 事件对象</h3><blockquote>
+<p>在触发DOM上的某个事件时，会产生一个事件对象event，对象中包含着所有与事件有关的信息，包括导致事件的元素、事件的类型等</p>
+</blockquote>
+<h4 id="4-1-DOM中的事件对象"><a href="#4-1-DOM中的事件对象" class="headerlink" title="4.1 DOM中的事件对象"></a>4.1 DOM中的事件对象</h4><blockquote>
+<p>兼容DOM的浏览器会将一个event对象传入到事件处理程序中</p>
+</blockquote>
+<ul>
+<li>event对象包含与创建它的特定事件有关的属性和方法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentTarget</td>
+<td>Element</td>
+<td>其事件处理程序当前正在处理事件的那个元素</td>
+</tr>
+<tr>
+<td>target</td>
+<td>Element</td>
+<td>事件的实际目标</td>
+</tr>
+<tr>
+<td>eventPhase</td>
+<td>Integer</td>
+<td>调用事件处理程序的阶段123</td>
+</tr>
+<tr>
+<td>preventDefault()</td>
+<td>Function</td>
+<td>取消事件的默认行为</td>
+</tr>
+<tr>
+<td>stopPropagation()</td>
+<td>Function</td>
+<td>取消事件的进一步捕获或冒泡</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>被触发的事件的类型</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>在事件处理程序的内部，对象this始终等于currentTarget的值（事件注册到的元素上），而target则包含事件的实际目标</li>
+</ul>
+<p><a href="https://blog.csdn.net/yingzizizizizizzz/article/details/77333996" target="_blank" rel="noopener">垃圾回收机制和内存释放</a></p>
+
       
     </div>
     
@@ -350,6 +552,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Javascript基础/" rel="tag"><i class="fa fa-tag"></i> Javascript基础</a>
+          
+        </div>
       
 
       
@@ -424,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -462,7 +679,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -485,6 +702,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-事件流"><span class="nav-number">1.</span> <span class="nav-text">1. 事件流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-事件处理程序"><span class="nav-number">2.</span> <span class="nav-text">2. 事件处理程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-HTML事件处理程序"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 HTML事件处理程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-DOM0级事件处理程序"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 DOM0级事件处理程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-DOM2级事件处理程序"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 DOM2级事件处理程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-执行顺序"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 执行顺序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-内存和性能"><span class="nav-number">3.</span> <span class="nav-text">3. 内存和性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-事件委托-事件代理"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 事件委托/事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#举例"><span class="nav-number">3.1.1.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-移除事件处理程序"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 移除事件处理程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-事件对象"><span class="nav-number">4.</span> <span class="nav-text">4. 事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-DOM中的事件对象"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 DOM中的事件对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
