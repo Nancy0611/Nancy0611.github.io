@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="Nancy&#39;s Blog">
 <meta property="og:description" content="引入在进行窗口的resize、scroll，输入框内容处理等操作时，如果事件处理函数的调用频率不限制的话，很可能被非常频繁地调用，而造成很大的性能问题。 下面我们参考百度的输入框，如果每输入一个字母就发送一次Ajax请求开销很大，浪费请求资源。123456789window.onload=function () &amp;#123;  function ajax (content) &amp;#123;    c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.7-未.gif">
+<meta property="og:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.7-未处理.gif">
 <meta property="og:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.8-1.webp">
 <meta property="og:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.7-防抖.gif">
 <meta property="og:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.8-2.webp">
 <meta property="og:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.8-节流.gif">
-<meta property="og:updated_time" content="2019-05-08T15:44:10.230Z">
+<meta property="og:updated_time" content="2019-05-08T15:48:50.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="防抖与节流">
 <meta name="twitter:description" content="引入在进行窗口的resize、scroll，输入框内容处理等操作时，如果事件处理函数的调用频率不限制的话，很可能被非常频繁地调用，而造成很大的性能问题。 下面我们参考百度的输入框，如果每输入一个字母就发送一次Ajax请求开销很大，浪费请求资源。123456789window.onload=function () &amp;#123;  function ajax (content) &amp;#123;    c">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.7-未.gif">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/08/防抖与节流/5.7-未处理.gif">
 
 
 
@@ -371,7 +371,7 @@
         <h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><p>在进行窗口的resize、scroll，输入框内容处理等操作时，如果事件处理函数的调用频率不限制的话，很可能被非常频繁地调用，而造成很大的性能问题。</p>
 <p>下面我们参考百度的输入框，如果每输入一个字母就发送一次Ajax请求开销很大，浪费请求资源。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">ajax</span> (<span class="params">content</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ajax request'</span>+content)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> inputNormal=<span class="built_in">document</span>.getElementById(<span class="string">'normal'</span>)</span><br><span class="line">  inputNormal.addEventListener(<span class="string">'keyup'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    ajax(e.target.value)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如图所示，键盘事件处理函数被频繁调用</p>
-<p><img src="/2019/05/08/防抖与节流/5.7-未.gif"></p>
+<p><img src="/2019/05/08/防抖与节流/5.7-未处理.gif"></p>
 <h4 id="防抖-debounce"><a href="#防抖-debounce" class="headerlink" title="防抖 (debounce)"></a>防抖 (debounce)</h4><blockquote>
 <p>在事件被触发n秒后再执行回调函数，如果在这n秒内又被触发，则重新计时</p>
 </blockquote>
